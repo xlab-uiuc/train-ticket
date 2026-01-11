@@ -1,7 +1,7 @@
 namespace: train-ticket
 job:
   # image: jacksonarthurclark/train-ticket-deploy:latest
-  image: saad1038/train-ticket-deploy:0.2.0
+  image: saad1038/train-ticket-deploy:latest
   # TODO: change to IfNotPresent after fault implementations are done
   # imagePullPolicy: IfNotPresent
   imagePullPolicy: Always
