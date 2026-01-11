@@ -102,6 +102,12 @@ function patch_tt_mysql {
     kubectl exec "$pod" -n "$namespace" -c xenon -- /sbin/reboot
   done
   wait_for_pods_ready $namespace
+  
+  # Fix max_connections issue - helm chart config doesn't apply properly
+  echo "Setting max_connections=500 on all MySQL instances..."
+  for pod in $(kubectl get pods -n "$namespace" --no-headers -o custom-columns=":metadata.name" | grep tsdb-mysql); do
+    kubectl exec "$pod" -n "$namespace" -- mysql -uroot -e "SET GLOBAL max_connections = 500;" 2>/dev/null || true
+  done
 }
 
 function gen_secret_for_tt {
