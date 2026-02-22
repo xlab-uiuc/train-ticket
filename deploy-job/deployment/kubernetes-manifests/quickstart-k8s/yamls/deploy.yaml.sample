@@ -19,8 +19,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -65,8 +63,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -111,8 +107,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -157,8 +151,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -203,8 +195,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -249,8 +239,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -297,8 +285,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -345,8 +331,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -391,8 +375,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -437,8 +419,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -483,8 +463,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -531,8 +509,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -579,8 +555,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -627,8 +601,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -675,8 +647,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -725,8 +695,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -771,8 +739,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -821,8 +787,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -869,8 +833,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -915,8 +877,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -963,8 +923,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1009,8 +967,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1059,8 +1015,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1109,8 +1063,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1159,8 +1111,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1207,8 +1157,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1255,8 +1203,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1303,8 +1249,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1351,8 +1295,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1399,8 +1341,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1445,8 +1385,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1493,8 +1431,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1539,8 +1475,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1587,8 +1521,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1635,8 +1567,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1683,8 +1613,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1731,8 +1659,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1779,8 +1705,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1827,8 +1751,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1873,8 +1795,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1921,8 +1841,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -1969,8 +1887,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -2017,8 +1933,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -2063,8 +1977,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -2111,8 +2023,6 @@ spec:
           env:
             - name: SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES
               value: "true"
-            - name: JAVA_TOOL_OPTIONS
-              value: "-Dspring.mvc.pathmatch.matching-strategy=ant-path-matcher"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
