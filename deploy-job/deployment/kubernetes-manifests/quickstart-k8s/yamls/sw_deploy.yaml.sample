@@ -25,7 +25,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-admin-basic-info-service
-          image: saad1038/ts-admin-basic-info-service:latest
+          image: ghcr.io/sregym/ts-admin-basic-info-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -93,7 +93,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-admin-order-service
-          image: saad1038/ts-admin-order-service:latest
+          image: ghcr.io/sregym/ts-admin-order-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -161,7 +161,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-admin-route-service
-          image: saad1038/ts-admin-route-service:latest
+          image: ghcr.io/sregym/ts-admin-route-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -229,7 +229,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-admin-travel-service
-          image: saad1038/ts-admin-travel-service:latest
+          image: ghcr.io/sregym/ts-admin-travel-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -297,7 +297,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-admin-user-service
-          image: saad1038/ts-admin-user-service:latest
+          image: ghcr.io/sregym/ts-admin-user-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -365,7 +365,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-assurance-service
-          image: saad1038/ts-assurance-service:latest
+          image: ghcr.io/sregym/ts-assurance-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -435,7 +435,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-auth-service
-          image: saad1038/ts-auth-service:latest
+          image: ghcr.io/sregym/ts-auth-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -505,7 +505,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-avatar-service
-          image:  codewisdom/ts-avatar-service:0.2.0
+          image:  ghcr.io/sregym/ts-avatar-service:0.2.0
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -573,7 +573,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-basic-service
-          image: saad1038/ts-basic-service:latest
+          image: ghcr.io/sregym/ts-basic-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -641,7 +641,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-cancel-service
-          image: saad1038/ts-cancel-service:latest
+          image: ghcr.io/sregym/ts-cancel-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -709,7 +709,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-config-service
-          image: saad1038/ts-config-service:latest
+          image: ghcr.io/sregym/ts-config-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -779,7 +779,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-consign-price-service
-          image: saad1038/ts-consign-price-service:latest
+          image: ghcr.io/sregym/ts-consign-price-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -849,7 +849,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-consign-service
-          image: saad1038/ts-consign-service:latest
+          image: ghcr.io/sregym/ts-consign-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -919,7 +919,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-contacts-service
-          image: saad1038/ts-contacts-service:latest
+          image: ghcr.io/sregym/ts-contacts-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -989,7 +989,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-delivery-service
-          image: saad1038/ts-delivery-service:latest
+          image: ghcr.io/sregym/ts-delivery-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1061,7 +1061,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-execute-service
-          image: saad1038/ts-execute-service:latest
+          image: ghcr.io/sregym/ts-execute-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1129,7 +1129,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-food-delivery-service
-          image: saad1038/ts-food-delivery-service:latest
+          image: ghcr.io/sregym/ts-food-delivery-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1199,7 +1199,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-food-service
-          image: saad1038/ts-food-service:latest
+          image: ghcr.io/sregym/ts-food-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1271,7 +1271,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-gateway-service
-          image: saad1038/ts-gateway-service:latest
+          image: ghcr.io/sregym/ts-gateway-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1339,7 +1339,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-inside-payment-service
-          image: saad1038/ts-inside-payment-service:latest
+          image: ghcr.io/sregym/ts-inside-payment-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1409,7 +1409,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-news-service
-          image: saad1038/ts-news-service:latest
+          image: ghcr.io/sregym/ts-news-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1477,7 +1477,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-notification-service
-          image: saad1038/ts-notification-service:latest
+          image: ghcr.io/sregym/ts-notification-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1549,7 +1549,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-order-other-service
-          image: saad1038/ts-order-other-service:latest
+          image: ghcr.io/sregym/ts-order-other-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1621,7 +1621,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-order-service
-          image: saad1038/ts-order-service:latest
+          image: ghcr.io/sregym/ts-order-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1693,7 +1693,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-payment-service
-          image: saad1038/ts-payment-service:latest
+          image: ghcr.io/sregym/ts-payment-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1763,7 +1763,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-preserve-other-service
-          image: saad1038/ts-preserve-other-service:latest
+          image: ghcr.io/sregym/ts-preserve-other-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1833,7 +1833,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-preserve-service
-          image: saad1038/ts-preserve-service:latest
+          image: ghcr.io/sregym/ts-preserve-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1903,7 +1903,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-price-service
-          image: saad1038/ts-price-service:latest
+          image: ghcr.io/sregym/ts-price-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -1973,7 +1973,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-rebook-service
-          image: saad1038/ts-rebook-service:latest
+          image: ghcr.io/sregym/ts-rebook-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2043,7 +2043,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-route-plan-service
-          image: saad1038/ts-route-plan-service:latest
+          image: ghcr.io/sregym/ts-route-plan-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2111,7 +2111,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-route-service
-          image: saad1038/ts-route-service:latest
+          image: ghcr.io/sregym/ts-route-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2181,7 +2181,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-seat-service
-          image: saad1038/ts-seat-service:latest
+          image: ghcr.io/sregym/ts-seat-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2249,7 +2249,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-security-service
-          image: saad1038/ts-security-service:latest
+          image: ghcr.io/sregym/ts-security-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2319,7 +2319,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-station-food-service
-          image: saad1038/ts-station-food-service:latest
+          image: ghcr.io/sregym/ts-station-food-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2389,7 +2389,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-station-service
-          image: saad1038/ts-station-service:latest
+          image: ghcr.io/sregym/ts-station-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2459,7 +2459,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-ticket-office-service
-          image: saad1038/ts-ticket-office-service:latest
+          image: ghcr.io/sregym/ts-ticket-office-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2529,7 +2529,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-train-food-service
-          image: saad1038/ts-train-food-service:latest
+          image: ghcr.io/sregym/ts-train-food-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2599,7 +2599,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-train-service
-          image: saad1038/ts-train-service:latest
+          image: ghcr.io/sregym/ts-train-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2669,7 +2669,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-travel-plan-service
-          image: saad1038/ts-travel-plan-service:latest
+          image: ghcr.io/sregym/ts-travel-plan-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2737,7 +2737,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-travel-service
-          image: saad1038/ts-travel-service:latest
+          image: ghcr.io/sregym/ts-travel-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2807,7 +2807,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-travel2-service
-          image: saad1038/ts-travel2-service:latest
+          image: ghcr.io/sregym/ts-travel2-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2877,7 +2877,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-user-service
-          image: saad1038/ts-user-service:latest
+          image: ghcr.io/sregym/ts-user-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -2947,7 +2947,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-verification-code-service
-          image: saad1038/ts-verification-code-service:latest
+          image: ghcr.io/sregym/ts-verification-code-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -3004,7 +3004,7 @@ spec:
     spec:
       containers:
         - name: ts-voucher-service
-          image: saad1038/ts-voucher-service:latest
+          image: ghcr.io/sregym/ts-voucher-service:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: NODE_IP
@@ -3059,7 +3059,7 @@ spec:
           args: [ "-c", "cp -R /skywalking/agent /agent/" ]
       containers:
         - name: ts-wait-order-service
-          image: saad1038/ts-wait-order-service:latest
+          image: ghcr.io/sregym/ts-wait-order-service:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: skywalking-agent
@@ -3118,7 +3118,7 @@ spec:
     spec:
       containers:
         - name: ts-ui-dashboard
-          image: saad1038/ts-ui-dashboard:latest
+          image: ghcr.io/sregym/ts-ui-dashboard:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

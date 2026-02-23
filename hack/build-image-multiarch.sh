@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-REPO="${1:-saad1038}"
+REPO="${1:-ghcr.io/sregym}"
 TAG="${2:-latest}"
 PLATFORMS="linux/amd64,linux/arm64"
 
