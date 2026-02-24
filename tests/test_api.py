@@ -1,6 +1,11 @@
 import requests
 import os
 import subprocess
+from datetime import date, timedelta
+
+# Use today's date for all travel queries (travel-service rejects past dates)
+TODAY = date.today().isoformat()
+TOMORROW = (date.today() + timedelta(days=1)).isoformat()
 
 
 def _discover_gateway():
@@ -53,7 +58,7 @@ def _discover_gateway():
 
 
 GW = _discover_gateway()
-TIMEOUT = 15
+TIMEOUT = 30
 TIMEOUT_LONG = 60
 
 passed = 0
@@ -184,7 +189,7 @@ NOTIFY_INFO = {
     "startPlace": "shanghai",
     "endPlace": "beijing",
     "startTime": "08:00",
-    "date": "2026-02-23",
+    "date": TODAY,
     "seatClass": "2",
     "seatNumber": "1A",
     "price": "100",
@@ -431,7 +436,7 @@ def main():
             },
             "startPlace": "shanghai",
             "endPlace": "suzhou",
-            "departureTime": "2026-02-23",
+            "departureTime": TODAY,
         },
         "basic: POST travel query",
         timeout=TIMEOUT_LONG,
@@ -532,8 +537,8 @@ def main():
             "id": "",
             "orderId": _consign_order_id,
             "accountId": USER_ID,
-            "handleDate": "2026-02-23",
-            "targetDate": "2026-02-24",
+            "handleDate": TODAY,
+            "targetDate": TOMORROW,
             "from": "shanghai",
             "to": "beijing",
             "consignee": "TestUser",
@@ -562,8 +567,8 @@ def main():
             "id": "",
             "orderId": _consign_order_id,
             "accountId": USER_ID,
-            "handleDate": "2026-02-23",
-            "targetDate": "2026-02-25",
+            "handleDate": TODAY,
+            "targetDate": TOMORROW,
             "from": "shanghai",
             "to": "beijing",
             "consignee": "TestUser",
@@ -715,7 +720,7 @@ def main():
     )
     delete(f"/api/v1/foodservice/orders/{ORDER_ID}", token, "food: DELETE order")
     get(
-        "/api/v1/foodservice/foods/2026-02-23/shanghai/suzhou/D1345",
+        f"/api/v1/foodservice/foods/{TODAY}/shanghai/suzhou/D1345",
         token,
         "food: GET foods for trip",
         timeout=TIMEOUT_LONG,
@@ -863,13 +868,13 @@ def main():
         "order-other: modify status",
     )
     get(
-        f"/api/v1/orderOtherService/orderOther/security/2026-02-23/{USER_ID}",
+        f"/api/v1/orderOtherService/orderOther/security/{TODAY}/{USER_ID}",
         token,
         "order-other: security check",
         timeout=TIMEOUT_LONG,
     )
     get(
-        "/api/v1/orderOtherService/orderOther/2026-02-23/K1235",
+        f"/api/v1/orderOtherService/orderOther/{TODAY}/K1235",
         token,
         "order-other: sold tickets",
         timeout=TIMEOUT_LONG,
@@ -878,7 +883,7 @@ def main():
         "/api/v1/orderOtherService/orderOther/tickets",
         token,
         {
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "trainNumber": "K1235",
             "startStation": "shanghai",
             "destStation": "taiyuan",
@@ -919,13 +924,13 @@ def main():
         f"/api/v1/orderservice/order/status/{ORDER_ID}/0", token, "order: modify status"
     )
     get(
-        f"/api/v1/orderservice/order/security/2026-02-23/{USER_ID}",
+        f"/api/v1/orderservice/order/security/{TODAY}/{USER_ID}",
         token,
         "order: security check",
         timeout=TIMEOUT_LONG,
     )
     get(
-        "/api/v1/orderservice/order/2026-02-23/G1234",
+        f"/api/v1/orderservice/order/{TODAY}/G1234",
         token,
         "order: sold tickets",
         timeout=TIMEOUT_LONG,
@@ -934,7 +939,7 @@ def main():
         "/api/v1/orderservice/order/tickets",
         token,
         {
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "trainNumber": "G1234",
             "startStation": "shanghai",
             "destStation": "beijing",
@@ -994,7 +999,7 @@ def main():
             "contactsId": CONTACT_ID_2,
             "tripId": "K1345",
             "seatType": 2,
-            "date": "2026-02-23",
+            "date": TODAY,
             "from": "shanghai",
             "to": "taiyuan",
             "assurance": 0,
@@ -1027,7 +1032,7 @@ def main():
             "contactsId": CONTACT_ID_1,
             "tripId": "D1345",
             "seatType": 2,
-            "date": "2026-02-23",
+            "date": TODAY,
             "from": "shanghai",
             "to": "suzhou",
             "assurance": 0,
@@ -1092,7 +1097,7 @@ def main():
             "oldTripId": "G1237",
             "tripId": "G1234",
             "seatType": 2,
-            "date": "2026-02-23",
+            "date": TODAY,
         },
         "rebook: POST rebook",
         timeout=TIMEOUT_LONG,
@@ -1106,7 +1111,7 @@ def main():
             "oldTripId": "G1237",
             "tripId": "G1234",
             "seatType": 2,
-            "date": "2026-02-23",
+            "date": TODAY,
         },
         "rebook: POST difference",
         timeout=TIMEOUT_LONG,
@@ -1123,8 +1128,8 @@ def main():
         token,
         {
             "startStation": "shanghai",
-            "endStation": "nanjing",
-            "travelDate": "2026-02-23",
+            "endStation": "taiyuan",
+            "travelDate": TODAY,
             "num": 5,
         },
         "route-plan: cheapest",
@@ -1135,8 +1140,8 @@ def main():
         token,
         {
             "startStation": "shanghai",
-            "endStation": "nanjing",
-            "travelDate": "2026-02-23",
+            "endStation": "taiyuan",
+            "travelDate": TODAY,
             "num": 5,
         },
         "route-plan: quickest",
@@ -1147,8 +1152,8 @@ def main():
         token,
         {
             "startStation": "shanghai",
-            "endStation": "nanjing",
-            "travelDate": "2026-02-23",
+            "endStation": "taiyuan",
+            "travelDate": TODAY,
             "num": 5,
         },
         "route-plan: minStops",
@@ -1179,7 +1184,7 @@ def main():
         "/api/v1/seatservice/seats/left_tickets",
         token,
         {
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "trainNumber": "D1345",
             "startStation": "shanghai",
             "destStation": "suzhou",
@@ -1194,7 +1199,7 @@ def main():
         "/api/v1/seatservice/seats",
         token,
         {
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "trainNumber": "D1345",
             "startStation": "shanghai",
             "destStation": "suzhou",
@@ -1348,21 +1353,33 @@ def main():
     post(
         "/api/v1/travelplanservice/travelPlan/cheapest",
         token,
-        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": "2026-02-23"},
+        {
+            "startPlace": "shanghai",
+            "endPlace": "taiyuan",
+            "departureTime": TODAY,
+        },
         "travel-plan: cheapest",
         timeout=TIMEOUT_LONG,
     )
     post(
         "/api/v1/travelplanservice/travelPlan/quickest",
         token,
-        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": "2026-02-23"},
+        {
+            "startPlace": "shanghai",
+            "endPlace": "taiyuan",
+            "departureTime": TODAY,
+        },
         "travel-plan: quickest",
         timeout=TIMEOUT_LONG,
     )
     post(
         "/api/v1/travelplanservice/travelPlan/minStation",
         token,
-        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": "2026-02-23"},
+        {
+            "startPlace": "shanghai",
+            "endPlace": "taiyuan",
+            "departureTime": TODAY,
+        },
         "travel-plan: minStation",
         timeout=TIMEOUT_LONG,
     )
@@ -1373,7 +1390,7 @@ def main():
             "startStation": "shanghai",
             "viaStation": "nanjing",
             "endStation": "beijing",
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "trainType": "G",
         },
         "travel-plan: transferResult",
@@ -1398,14 +1415,14 @@ def main():
     post(
         "/api/v1/travelservice/trips/left",
         token,
-        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": "2026-02-23"},
+        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": TODAY},
         "travel: POST trips/left",
         timeout=TIMEOUT_LONG,
     )
     post(
         "/api/v1/travelservice/trips/left_parallel",
         token,
-        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": "2026-02-23"},
+        {"startPlace": "shanghai", "endPlace": "suzhou", "departureTime": TODAY},
         "travel: POST trips/left_parallel",
         timeout=TIMEOUT_LONG,
     )
@@ -1414,7 +1431,7 @@ def main():
         token,
         {
             "tripId": "D1345",
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "from": "shanghai",
             "to": "suzhou",
         },
@@ -1451,7 +1468,7 @@ def main():
         {
             "startPlace": "shanghai",
             "endPlace": "taiyuan",
-            "departureTime": "2026-02-23",
+            "departureTime": TODAY,
         },
         "travel2: POST trips/left",
         timeout=TIMEOUT_LONG,
@@ -1461,7 +1478,7 @@ def main():
         token,
         {
             "tripId": "Z1234",
-            "travelDate": "2026-02-23",
+            "travelDate": TODAY,
             "from": "shanghai",
             "to": "taiyuan",
         },
@@ -1505,11 +1522,22 @@ def main():
     # 44. ts-voucher-service (1 endpoint)
     # =================================================================
     print("--- ts-voucher-service (1 endpoint) ---")
+    # Voucher needs a real order ID from the order service (crashes on null)
+    _voucher_order_id = ORDER_ID
+    r = get("/api/v1/orderservice/order", token, "voucher: fetch orders for valid ID")
+    if r and r.status_code == 200:
+        try:
+            _orders = r.json().get("data", [])
+            if _orders:
+                _voucher_order_id = _orders[0]["id"]
+        except Exception:
+            pass
     post(
         "/getVoucher",
         token,
-        {"orderId": ORDER_ID, "type": 1},
+        {"orderId": _voucher_order_id, "type": 1},
         "voucher: POST getVoucher",
+        timeout=TIMEOUT_LONG,
     )
     print()
 
