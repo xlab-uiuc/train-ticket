@@ -22,7 +22,7 @@ class GetVoucherHandler(tornado.web.RequestHandler):
         #################################### Fault Injection Code Start ####################################
         # F-17: Too many nested selects -> simulate slow DB by sleeping in MySQL
         try:
-            rf17_flag = feature_flag_service.is_enabled("fault-17-nested-sql-select-clause-error")
+            rf17_flag = feature_flag_service.is_enabled("tt-feat-17")
         except Exception:
             rf17_flag = False
 

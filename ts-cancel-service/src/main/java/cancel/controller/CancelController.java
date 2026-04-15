@@ -58,7 +58,7 @@ public class CancelController {
     /**
      * Testing endpoint to check feature flag values
      * Usage: GET /api/v1/cancelservice/test/flag/{flagName}
-     * Example: GET /api/v1/cancelservice/test/flag/fault-1-async-message-sequence-control
+     * Example: GET /api/v1/cancelservice/test/flag/tt-feat-01
      */
     @CrossOrigin(origins = "*")
     @GetMapping(path = "/test/flag/{flagName}")

@@ -53,7 +53,7 @@ public class ContactsServiceImpl implements ContactsService {
         // FAULT F22: Conditionally execute correct or faulty query based on feature flag
         Contacts contactsTemp = null;
         try {
-            boolean faultEnabled = featureFlagService.isEnabled("fault-22-sql-column-name-mismatch-error");
+            boolean faultEnabled = featureFlagService.isEnabled("tt-feat-22");
             if (faultEnabled) {
                 contactsTemp = contactsRepository.findByAccountIdAndDocumentTypeAndDocumentType(
                     contacts.getAccountId(), contacts.getDocumentNumber(), contacts.getDocumentType());
@@ -80,7 +80,7 @@ public class ContactsServiceImpl implements ContactsService {
             // FAULT F22: Conditionally execute correct or faulty query based on feature flag
         Contacts c = null;
         try {
-            boolean faultEnabled = featureFlagService.isEnabled("fault-22-sql-column-name-mismatch-error");
+            boolean faultEnabled = featureFlagService.isEnabled("tt-feat-22");
 
             if (faultEnabled) {
                 // Execute faulty query - will cause SQL column missing error
