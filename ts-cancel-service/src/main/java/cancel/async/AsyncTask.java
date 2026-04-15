@@ -19,7 +19,7 @@ public class AsyncTask {
 
         System.out.println("[TrainTicket][Cancel][AsyncTask] Starting drawback process for order: " + orderId);
 
-        if (featureFlagService.isEnabled("fault-1-async-message-sequence-control")) {
+        if (featureFlagService.isEnabled("tt-feat-01")) {
             Thread.sleep(8000);
         }
 
@@ -39,7 +39,7 @@ public class AsyncTask {
     @Async("mySimpleAsync")
     public Future<Boolean> sendEmail(String email, String orderId) {
 
-        featureFlagService.isEnabled("fault-1-async-message-sequence-control");
+        featureFlagService.isEnabled("tt-feat-01");
 
         System.out.println("[TrainTicket][Cancel][AsyncTask] Sending cancellation email to: " + email);
         System.out.println("[TrainTicket][Cancel][AsyncTask] Order ID: " + orderId);

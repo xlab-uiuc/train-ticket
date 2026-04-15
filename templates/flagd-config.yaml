@@ -6,154 +6,154 @@ metadata:
 data:
   flags.yaml: |
     flags:
-      fault-1-async-message-sequence-control:
+      tt-feat-01:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-2-data-request-order-inconsistency:
+
+      tt-feat-02:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-3-jvm-docker-config-mismatch:
+
+      tt-feat-03:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-4-ssl-offloading-granularity:
+
+      tt-feat-04:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-5-high-load-timeout-cascade:
+
+      tt-feat-05:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-6-sql-error-recursive-requests:
+
+      tt-feat-06:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-7-third-party-service-overload:
+
+      tt-feat-07:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-8-request-key-propagation-failure:
+
+      tt-feat-08:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-9-css-bidirectional-display-error:
+
+      tt-feat-09:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-10-bom-api-unexpected-output:
+
+      tt-feat-10:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-11-bom-data-sequence-error:
+
+      tt-feat-11:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-12-price-status-query-chain-error:
+
+      tt-feat-12:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-13-price-optimization-order-error:
+
+      tt-feat-13:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-14-locked-product-cpi-calculation-error:
+
+      tt-feat-14:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-15-spark-actor-system-config-error:
+
+      tt-feat-15:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-16-spray-max-content-length-limit:
+
+      tt-feat-16:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-17-nested-sql-select-clause-error:
+
+      tt-feat-17:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-18-json-chart-data-null-value:
+
+      tt-feat-18:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-19-product-price-french-format-error:
+
+      tt-feat-19:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-20-jboss-db2-jar-classpath-error:
+
+      tt-feat-20:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-21-aria-labeled-accessibility-error:
+
+      tt-feat-21:
         state: ENABLED
         variants:
           "on": true
           "off": false
         defaultVariant: "off"
-      
-      fault-22-sql-column-name-mismatch-error:
+
+      tt-feat-22:
         state: ENABLED
         variants:
           "on": true
