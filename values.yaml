@@ -1,7 +1,8 @@
 namespace: train-ticket
 job:
   # image: jacksonarthurclark/train-ticket-deploy:latest
-  image: ghcr.io/sregym/train-ticket-deploy:latest
+  # image: ghcr.io/sregym/train-ticket-deploy:latest
+  image: somyas3/train-ticket-deploy:jaeger
   # image: ghcr.io/sregym/train-ticket-deploy:jaeger
   # TODO: change to IfNotPresent after fault implementations are done
   # imagePullPolicy: IfNotPresent

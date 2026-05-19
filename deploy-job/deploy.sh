@@ -20,7 +20,7 @@ svc_list="assurance auth config consign-price consign contacts delivery food foo
 secret_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/secret.yaml"
 dp_sample_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/deploy.yaml.sample"
 sw_dp_sample_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/sw_deploy.yaml.sample"
-dp_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/deploy.yaml"
+dp_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/deploy_alt.yaml"
 sw_dp_yaml="deployment/kubernetes-manifests/quickstart-k8s/yamls/sw_deploy.yaml"
 
 # Get the namespace from command line argument or set to "default" if not provided
@@ -167,7 +167,7 @@ function update_tt_dp_cm {
   nacosCM="$1"
   rabbitmqCM="$2"
 
-  cp $dp_sample_yaml $dp_yaml
+  # cp $dp_sample_yaml $dp_yaml
 
   if [[ "$(uname)" == "Darwin" ]]; then
     sed -i "" "s/nacos/${nacosCM}/g" $dp_yaml
@@ -193,7 +193,7 @@ function complete_deployment {
 
   # echo "Deploying train-ticket deployments..."
   update_tt_dp_cm $nacosRelease $rabbitmqRelease
-  kubectl apply -f deployment/kubernetes-manifests/quickstart-k8s/yamls/deploy.yaml -n $namespace > /dev/null
+  kubectl apply -f deployment/kubernetes-manifests/quickstart-k8s/yamls/deploy_alt.yaml -n $namespace > /dev/null
 
   # Skywalking-ui is getting OOMKilled, might be issues with old image
   # I'm just commenting out for now since I'm not sure if we need it at all since we have prometheus and grafana

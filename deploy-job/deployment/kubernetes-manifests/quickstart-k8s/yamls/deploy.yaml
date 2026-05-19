@@ -14,13 +14,17 @@ spec:
     spec:
       containers:
         - name: ts-admin-basic-info-service
-          image: codewisdom/ts-admin-basic-info-service:1.0.0
+          image: somyas3/ts-admin-basic-info-service:otel
           imagePullPolicy: IfNotPresent
           env:
             - name: NODE_IP
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: OTEL_SERVICE_NAME
+              value: ts-admin-basic-info-service
+            - name: MANAGEMENT_OPENTELEMETRY_TRACING_EXPORT_OTLP_ENDPOINT
+              value: http://jaeger-agent.observe.svc.cluster.local:4318/v1/traces
           envFrom:
             - configMapRef:
                 name: nacos

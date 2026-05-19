@@ -7,6 +7,27 @@ spec:
   template:
     spec:
       serviceAccountName: train-ticket-deploy-sa
+      initContainers:
+      - name: create-jaeger-services
+        image: bitnami/kubectl:latest
+        command:
+          - /bin/sh
+          - -c
+          - |
+            set -e
+
+            for svc in jaeger jaeger-agent jaeger-collector jaeger-query; do
+              kubectl delete svc "$svc" -n {{ .Values.namespace }} --ignore-not-found
+              kubectl create service externalname "$svc" \
+                --external-name=otel-collector.observe.svc.cluster.local \
+                -n {{ .Values.namespace }}
+              echo "Recreated service $svc"
+            done
+
+            kubectl delete deployment -n {{ .Values.namespace }} -l app-name=jaeger --ignore-not-found
+            kubectl delete statefulset -n {{ .Values.namespace }} -l app-name=jaeger --ignore-not-found
+
+            kubectl rollout restart daemonset/otel-collector-agent -n {{ .Values.namespace }} || true
       containers:
         - name: train-ticket-deploy
           image: {{ .Values.job.image }}

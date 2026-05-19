@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-admin-basic-info-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-admin-basic-info-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-admin-basic-info-service
+    spec:
+      containers:
+        - name: ts-admin-basic-info-service
+          image: somyas3/ts-admin-basic-info-service:otel
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: OTEL_SERVICE_NAME
+              value: ts-admin-basic-info-service
+            - name: MANAGEMENT_OPENTELEMETRY_TRACING_EXPORT_OTLP_ENDPOINT
+              value: http://jaeger-agent.observe.svc.cluster.local:4318/v1/traces
+          envFrom:
+            - configMapRef:
+                name: nacos
+          ports:
+            - containerPort: 18767
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 500m
+              memory: 2000Mi
+          readinessProbe:
+            tcpSocket:
+              port: 18767
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
