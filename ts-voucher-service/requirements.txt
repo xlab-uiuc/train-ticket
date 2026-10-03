@@ -8,3 +8,8 @@ cryptography
 protobuf==5.29.0
 grpcio==1.71.2
 typing_extensions
+opentelemetry-distro==0.54b1
+opentelemetry-exporter-otlp-proto-grpc==1.33.1
+opentelemetry-instrumentation-tornado==0.54b1
+opentelemetry-instrumentation-pymysql==0.54b1
+opentelemetry-instrumentation-urllib==0.54b1

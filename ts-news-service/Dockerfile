@@ -1,9 +1,13 @@
-FROM golang:1.21 AS builder
+FROM --platform=$BUILDPLATFORM golang:1.23-bookworm AS builder
 
 WORKDIR /app
-COPY ./src/main/main.go .
+COPY go.mod go.sum ./
+RUN go mod download
+COPY ./src/main ./
 
-RUN CGO_ENABLED=0 go build -o app main.go
+ARG TARGETOS
+ARG TARGETARCH
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o app .
 
 FROM alpine:3.19
 RUN apk add --no-cache tzdata && \
@@ -12,5 +16,7 @@ RUN apk add --no-cache tzdata && \
 
 WORKDIR /app
 COPY --from=builder /app/app .
+ENV OTEL_SERVICE_NAME=ts-news-service \
+    OTEL_EXPORTER_OTLP_PROTOCOL=grpc
 CMD ["./app"]
 EXPOSE 12862

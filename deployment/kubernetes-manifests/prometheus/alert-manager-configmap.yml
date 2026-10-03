@@ -12,8 +12,6 @@ data:
       resolve_timeout: 5m
     receivers:
     - name: default-receiver
-      email_configs:
-      - to: 'xxxxxxxxxxxx@126.com'
     - name: alertsnitch
       webhook_configs:
         - url: http://alertsnitch:9567/webhook

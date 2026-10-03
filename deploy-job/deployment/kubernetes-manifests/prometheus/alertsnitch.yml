@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: alertsnitch-mysql
-        image: 569107519/alertsnitch-mysql:v1.0
+        image: ghcr.io/sregym/train-ticket-alertsnitch-mysql:20260911-multiarch@sha256:9276f1cddcc55d52c3521cc57c9455d07a3319069170eeee12ba80de0f5c438a
         imagePullPolicy: IfNotPresent
         env:
           - name: MYSQL_ROOT_PASSWORD

@@ -30,12 +30,11 @@ spec:
           args:
             - --config.file=/etc/config/alertmanager.yml
             - --storage.path=/data
-            - --web.external-url=/
           ports:
             - containerPort: 9093
           readinessProbe:
             httpGet:
-              path: /#/status
+              path: /-/ready
               port: 9093
             initialDelaySeconds: 30
             timeoutSeconds: 30
@@ -55,6 +54,8 @@ spec:
         - name: config-volume
           configMap:
             name: alertmanager-config
+        - name: alertmanager-data
+          emptyDir: {}
         - name: timezone
           hostPath:
             path: /usr/share/zoneinfo/Asia/Shanghai

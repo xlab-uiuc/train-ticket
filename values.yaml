@@ -1,8 +1,11 @@
 namespace: train-ticket
 job:
   # image: jacksonarthurclark/train-ticket-deploy:latest
-  image: ghcr.io/sregym/train-ticket-deploy:latest
+  image: ghcr.io/sregym/train-ticket-deploy:20261003.3-otel@sha256:7c3c916df51207327390c7883e1588f5c2d023d0ca1d2c168a51de429063fdd5
   # image: ghcr.io/sregym/train-ticket-deploy:jaeger
   # TODO: change to IfNotPresent after fault implementations are done
   # imagePullPolicy: IfNotPresent
   imagePullPolicy: Always
+
+tracing:
+  endpoint: http://otel-collector.observe.svc.cluster.local:4317

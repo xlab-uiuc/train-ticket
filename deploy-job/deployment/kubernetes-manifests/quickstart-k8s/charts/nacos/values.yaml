@@ -8,8 +8,8 @@ global:
 ############################nacos###########################
 nacos:
   image:
-    repository: nacos/nacos-server
-    tag: 2.0.1
+    repository: ghcr.io/sregym/train-ticket-nacos
+    tag: 20260911-multiarch@sha256:9e047e4285b437647c1e7ce0206d195ceb64fe23c69e2c443d285890c165b91a
     pullPolicy: IfNotPresent
   replicaCount: 3
   domainName: cluster.local
@@ -31,7 +31,7 @@ service:
   port: 8848
 
 initmysql:
-  image: "codewisdom/mysqlclient:0.1"
+  image: "ghcr.io/sregym/train-ticket-mysqlclient:20260911-multiarch@sha256:d6f86c7b70c48c1360dc0e39d07e13b436bc2f111cf3ce38dc14a1ddf474e3b7"
 
 
 

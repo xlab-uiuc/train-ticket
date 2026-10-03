@@ -11,6 +11,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ADD ./server.py /app/
 ADD ./feature_flag_service.py /app/
-CMD [ "python", "-u", "server.py" ]
+ENV OTEL_SERVICE_NAME=ts-voucher-service \
+    OTEL_EXPORTER_OTLP_PROTOCOL=grpc \
+    OTEL_METRICS_EXPORTER=none \
+    OTEL_LOGS_EXPORTER=none
+
+CMD [ "opentelemetry-instrument", "python", "-u", "server.py" ]
 
 EXPOSE 16101

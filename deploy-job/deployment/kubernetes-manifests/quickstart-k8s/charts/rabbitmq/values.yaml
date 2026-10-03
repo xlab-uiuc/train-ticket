@@ -8,8 +8,8 @@ global:
 ############################nacos###########################
 rabbitmq:
   image:
-    repository: codewisdom/rabbitmq
-    tag: 3
+    repository: rabbitmq
+    tag: 3.8.19@sha256:20064e7c237879e71311bbfedfc0101df9826fd756edb37806ab9c9b72d39d1e
     pullPolicy: IfNotPresent
   replicaCount: 1
   serverPort: 5672

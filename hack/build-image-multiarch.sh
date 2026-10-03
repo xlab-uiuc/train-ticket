@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
-# Build all 47 images (46 services + deploy-job) as multi-arch and push to ghcr.io/sregym
+# Build the shared Java runtime, 46 services, and deployment job.
 set -eu
 
 REPO="${1:-ghcr.io/sregym}"
 TAG="${2:-latest}"
 PLATFORMS="linux/amd64,linux/arm64"
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-export JAVA_HOME
-
-LOGFILE="hack/build-multiarch-$(date +%Y%m%d-%H%M%S).log"
-
-# Tee all output to logfile and stdout, strip ANSI codes from logfile
-# exec > >(tee >(sed 's/\x1b\[[0-9;]*m//g' >> "$LOGFILE")) 2>&1
-# echo "Logging to $LOGFILE"
+cd "$(dirname "$0")/.."
 
 # Java services (need Maven build)
 JAVA_SERVICES=(
@@ -69,7 +62,7 @@ NON_JAVA_SERVICES=(
 )
 
 ALL_SERVICES=("${JAVA_SERVICES[@]}" "${NON_JAVA_SERVICES[@]}")
-TOTAL=$(( ${#ALL_SERVICES[@]} + 1 ))  # +1 for deploy-job
+TOTAL=$(( ${#ALL_SERVICES[@]} + 2 ))
 
 echo "========================================"
 echo "  Multi-arch build -> $REPO"
@@ -92,24 +85,24 @@ FAILED=()
 OK=0
 START_TIME=$(date +%s)
 
-# Step 1: Maven build for Java services
-echo "=== Maven: building ts-common ==="
-mvn clean install -DskipTests -N
-mvn clean install -DskipTests -f ts-common/pom.xml
+# Maven resolves ts-common within the reactor. Respect the caller's JAVA_HOME.
+mvn -B -T 2 package -DskipTests
 
-for svc in "${JAVA_SERVICES[@]}"; do
-  echo "=== Maven: $svc ==="
-  mvn clean package -DskipTests -f "$svc/pom.xml"
-done
-echo ""
+JAVA_RUNTIME_IMAGE="$REPO/train-ticket-java-runtime:${TAG}-java-runtime"
+docker buildx build --platform "$PLATFORMS" \
+  -t "$JAVA_RUNTIME_IMAGE" --push docker/java-runtime/
+RUNTIME_DIGEST=$(docker buildx imagetools inspect "$JAVA_RUNTIME_IMAGE" --format '{{.Manifest.Digest}}')
+JAVA_RUNTIME_IMAGE="$JAVA_RUNTIME_IMAGE@$RUNTIME_DIGEST"
+OK=1
 
 # Step 2: Docker buildx for all services
-IDX=0
+IDX=1
 for svc in "${ALL_SERVICES[@]}"; do
   IDX=$((IDX + 1))
   PCT=$(( (IDX - 1) * 100 / TOTAL ))
   echo "[$IDX/$TOTAL] ($PCT%) $svc"
   if docker buildx build --platform "$PLATFORMS" \
+    --build-arg JAVA_RUNTIME_IMAGE="$JAVA_RUNTIME_IMAGE" \
     -t "$REPO/$svc:$TAG" --push "$svc/"; then
     OK=$((OK + 1))
     ELAPSED=$(( $(date +%s) - START_TIME ))
@@ -123,10 +116,16 @@ for svc in "${ALL_SERVICES[@]}"; do
 done
 
 # Step 3: deploy-job
+if [ ${#FAILED[@]} -gt 0 ]; then
+  echo "Service builds failed; the deployment job will not be published."
+  printf '%s\n' "${FAILED[@]}"
+  exit 1
+fi
 IDX=$((IDX + 1))
 PCT=$(( (IDX - 1) * 100 / TOTAL ))
 echo "[$IDX/$TOTAL] ($PCT%) train-ticket-deploy"
 if docker buildx build --platform "$PLATFORMS" \
+  --build-arg IMAGE_REGISTRY="$REPO" --build-arg SERVICE_IMAGE_TAG="$TAG" \
   -t "$REPO/train-ticket-deploy:$TAG" --push deploy-job/; then
   OK=$((OK + 1))
 else
@@ -152,4 +151,5 @@ if [ ${#FAILED[@]} -gt 0 ]; then
   for f in "${FAILED[@]}"; do
     echo "  - $f"
   done
+  exit 1
 fi

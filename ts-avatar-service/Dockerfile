@@ -16,6 +16,11 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:17001", "app:app"]
+ENV OTEL_SERVICE_NAME=ts-avatar-service \
+    OTEL_EXPORTER_OTLP_PROTOCOL=grpc \
+    OTEL_METRICS_EXPORTER=none \
+    OTEL_LOGS_EXPORTER=none
+
+CMD ["opentelemetry-instrument", "gunicorn", "-w", "4", "-b", "0.0.0.0:17001", "app:app"]
 
 EXPOSE 17001

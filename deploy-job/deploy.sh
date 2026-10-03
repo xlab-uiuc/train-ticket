@@ -176,6 +176,21 @@ function update_tt_dp_cm {
     sed -i "s/nacos/${nacosCM}/g" $dp_yaml
     sed -i "s/rabbitmq/${rabbitmqCM}/g" $dp_yaml
   fi
+
+  # Export happens in the background, so the collector need not be Ready
+  # for the application to start.
+  if ! kubectl set env --local -f "$dp_yaml" \
+    OTEL_EXPORTER_OTLP_ENDPOINT="${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector.observe.svc.cluster.local:4317}" \
+    OTEL_EXPORTER_OTLP_PROTOCOL=grpc \
+    OTEL_METRICS_EXPORTER=none \
+    OTEL_LOGS_EXPORTER=none \
+    OTEL_PROPAGATORS=tracecontext,baggage \
+    -o yaml > "$dp_yaml.tmp"; then
+    rm -f "$dp_yaml.tmp"
+    echo "Error: failed to configure application tracing." >&2
+    exit 1
+  fi
+  mv "$dp_yaml.tmp" "$dp_yaml" || exit 1
 }
 
 # Step 6: Complete deployment of Train Ticket services

@@ -19,17 +19,6 @@ class GetVoucherHandler(tornado.web.RequestHandler):
         orderId = data["orderId"]
         type = data["type"]
 
-        #################################### Fault Injection Code Start ####################################
-        # F-17: Too many nested selects -> simulate slow DB by sleeping in MySQL
-        try:
-            rf17_flag = feature_flag_service.is_enabled("tt-feat-17")
-        except Exception:
-            rf17_flag = False
-
-        if rf17_flag:
-            self._simulate_nested_select_delay()
-        #################################### Fault Injection Code End ####################################
-
         #Query for the existence of a corresponding credential based on the order id
         queryVoucher = self.fetchVoucherByOrderId(orderId)
 
@@ -57,22 +46,6 @@ class GetVoucherHandler(tornado.web.RequestHandler):
         else:
             self.write(queryVoucher)
 
-    def _simulate_nested_select_delay(self):
-        try:
-            global mysql_config
-            conn = pymysql.connect(**mysql_config)
-            cur = conn.cursor()
-            # Use built-in MySQL sleep to simulate heavy nested query cost
-            cur.execute("SELECT SLEEP(10);")
-            conn.commit()
-        except Exception:
-            pass
-        finally:
-            try:
-                conn.close()
-            except Exception:
-                pass
-
     def queryOrderByIdAndType(self,orderId,type):
         # Because nacos-sdk-python does not support nacos 2.x yet, we still use environment variables
         # to set order-service url.
@@ -98,12 +71,15 @@ class GetVoucherHandler(tornado.web.RequestHandler):
     def fetchVoucherByOrderId(self,orderId):
         #Check the voucher for reimbursement for orderId from the voucher table
         global mysql_config
-        conn = pymysql.connect(**mysql_config)
-        cur = conn.cursor()
         #query statement
         sql = 'SELECT * FROM voucher where order_id = %s'
+        if feature_flag_service.is_enabled("tt-feat-17"):
+            # MySQL requires an alias for the table produced by a nested SELECT.
+            sql = 'SELECT * FROM (SELECT * FROM voucher where order_id = %s)'
+        conn = pymysql.connect(**mysql_config)
         try:
-            cur.execute(sql,(orderId))
+            cur = conn.cursor()
+            cur.execute(sql,(orderId,))
             voucher = cur.fetchone()
             conn.commit()
             #Build return data
@@ -192,5 +168,3 @@ if __name__ == "__main__":
     app = make_app()
     app.listen(16101)
     tornado.ioloop.IOLoop.current().start()
-
-
